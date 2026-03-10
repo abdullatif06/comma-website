@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Twitter, MapPin, Phone, Mail } from 'lucide-react';
+import { Logo } from './Logo';
 
 export function Footer() {
   return (
@@ -10,10 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
-              <img src="https://storage.googleapis.com/a1aa/image/22421689-026c-4610-b98a-7232230b05b3.png" alt="Comma Logo" className="h-8 w-auto brightness-0 invert" />
-              <span className="font-serif text-2xl font-bold tracking-tight text-white">
-                COMMA
-              </span>
+              <Logo className="h-10 w-10" fill="white" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">
               A premium coffee experience. We source the finest beans and craft every cup with precision and passion.

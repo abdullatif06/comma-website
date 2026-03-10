@@ -116,9 +116,11 @@ export function About() {
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.1 } }
                 }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group border border-gray-100"
               >
-                <div className="text-primary mb-6">{value.icon}</div>
+                <div className="text-primary bg-primary/5 p-4 rounded-full inline-block mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  {value.icon}
+                </div>
                 <h3 className="text-xl font-serif font-semibold mb-4 text-text">{value.title}</h3>
                 <p className="text-text-light leading-relaxed">{value.desc}</p>
               </motion.div>

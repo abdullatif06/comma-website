@@ -119,25 +119,18 @@ export function Visit() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full h-full min-h-[500px] rounded-2xl overflow-hidden shadow-2xl relative"
+            className="w-full h-full min-h-[500px] rounded-2xl overflow-hidden shadow-2xl relative bg-gray-100"
           >
-            {/* Placeholder for Google Maps - Using an image for aesthetic purposes in this demo */}
-            <img
-              src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?q=80&w=1600&auto=format&fit=crop"
-              alt="Coffee Shop Exterior"
-              className="w-full h-full object-cover absolute inset-0"
-            />
-            <div className="absolute inset-0 bg-black/20 hover:bg-transparent transition-colors duration-500"></div>
-            
-            {/* Simulated Map Overlay Pin */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center animate-bounce">
-              <div className="bg-primary text-white p-4 rounded-full shadow-2xl mb-2">
-                <MapPin className="w-8 h-8" />
-              </div>
-              <div className="bg-white px-4 py-2 rounded-full shadow-xl text-sm font-semibold text-text">
-                Comma Coffee
-              </div>
-            </div>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27078.68239031024!2d35.89733072210086!3d31.95159489241951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca071250269c3%3A0x289745b6329c3b88!2sJabal%20Amman%2C%20Amman%2C%20Jordan!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={true} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 grayscale hover:grayscale-0 transition-all duration-700"
+            ></iframe>
           </motion.div>
 
         </div>

@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Coffee, Star, MapPin } from 'lucide-react';
+import { ArrowRight, Coffee, Star, MapPin, Instagram } from 'lucide-react';
 import clsx from 'clsx';
 
 const fadeInUp = {
@@ -17,6 +17,28 @@ const staggerContainer = {
     }
   }
 };
+
+const wordContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.05, delayChildren: 0.2 }
+  }
+};
+
+const charVariant = {
+  hidden: { opacity: 0, y: 15, filter: 'blur(4px)' },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+  }
+};
+
+const line1 = "Pause.";
+const line2 = "Sip.";
+const line3 = " Enjoy.";
 
 export function Home() {
   return (
@@ -39,9 +61,32 @@ export function Home() {
             variants={staggerContainer}
             className="max-w-3xl mx-auto space-y-8"
           >
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight">
-              Pause.<br />
-              <span className="text-primary-light">Sip.</span> Enjoy.
+            <motion.h1 
+              variants={wordContainer} 
+              className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight"
+            >
+              <span className="inline-block">
+                {line1.split('').map((char, i) => (
+                  <motion.span key={`l1-${i}`} variants={charVariant} className="inline-block">
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+              <br />
+              <span className="inline-block text-primary-light">
+                {line2.split('').map((char, i) => (
+                  <motion.span key={`l2-${i}`} variants={charVariant} className="inline-block">
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+              <span className="inline-block">
+                {line3.split('').map((char, i) => (
+                  <motion.span key={`l3-${i}`} variants={charVariant} className="inline-block">
+                    {char === ' ' ? '\u00A0' : char}
+                  </motion.span>
+                ))}
+              </span>
             </motion.h1>
             <motion.p variants={fadeInUp} className="text-lg md:text-xl text-white/90 font-light max-w-xl mx-auto">
               Experience the art of coffee in every cup. A moment of clarity in your busy day.
@@ -278,15 +323,60 @@ export function Home() {
         </div>
       </section>
 
+      {/* Instagram Feed */}
+      <section className="py-24 md:py-32 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <Instagram className="w-8 h-8 mx-auto text-primary mb-4" />
+            <h2 className="text-4xl md:text-5xl font-serif text-text">Follow Our Journey</h2>
+            <a 
+              href="https://www.instagram.com/comma.jo/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block text-primary font-medium hover:text-primary-dark transition-colors tracking-wide"
+            >
+              @comma.jo
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              "https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=600&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=600&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop",
+              "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=600&auto=format&fit=crop"
+            ].map((img, i) => (
+              <a 
+                key={i} 
+                href="https://www.instagram.com/comma.jo/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="relative group aspect-square overflow-hidden bg-background block rounded-xl"
+              >
+                <img 
+                  src={img} 
+                  alt="Instagram post" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <Instagram className="text-white w-8 h-8" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-primary text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
-            </pattern>
-            <rect width="100" height="100" fill="url(#grid)" />
-          </svg>
+      <section className="py-24 md:py-32 text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1600&auto=format&fit=crop" 
+            alt="Coffee background" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/90 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-primary/80" />
         </div>
         <div className="container mx-auto px-6 max-w-4xl relative z-10 space-y-8">
           <h2 className="text-4xl md:text-6xl font-serif font-bold">Ready for your daily pause?</h2>

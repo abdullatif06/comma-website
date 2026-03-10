@@ -163,21 +163,21 @@ export function Menu() {
               {/* Items List */}
               <ul className="space-y-6">
                 {section.items.map((item, i) => (
-                  <li key={i} className="group cursor-default">
+                  <li key={i} className="group cursor-default p-3 -mx-3 rounded-xl hover:bg-white hover:shadow-sm transition-all duration-300 border border-transparent hover:border-gray-100">
                     <div className="flex justify-between items-baseline gap-4">
                       <div className="flex flex-col">
                         <span className="text-lg font-medium text-text group-hover:text-primary transition-colors">
                           {item.name}
                         </span>
-                        <span className="text-sm text-text-light font-serif" dir="rtl">
+                        <span className="text-sm text-text-light font-serif group-hover:text-primary/70 transition-colors" dir="rtl">
                           {item.ar}
                         </span>
                       </div>
                       
                       {/* Dotted Line */}
-                      <div className="flex-grow border-b border-dotted border-text-light/30 mx-4 relative top-[-6px]"></div>
+                      <div className="flex-grow border-b border-dotted border-text-light/30 mx-4 relative top-[-6px] group-hover:border-primary/30 transition-colors"></div>
                       
-                      <span className="text-lg font-serif font-semibold text-primary shrink-0">
+                      <span className="text-lg font-serif font-semibold text-primary shrink-0 group-hover:scale-105 transition-transform origin-right">
                         {item.price}
                       </span>
                     </div>
