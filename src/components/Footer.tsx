@@ -11,7 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
-              <Logo className="h-10 w-10" fill="white" />
+              <Logo fill="white" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">
               A premium coffee experience. We source the finest beans and craft every cup with precision and passion.

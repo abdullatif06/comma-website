@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Coffee, Users, Globe, Leaf } from 'lucide-react';
+import aboutImage from '../../images/Whisk_4d657d4cbad32d6a9e44698f74063060eg.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -13,8 +14,8 @@ export function About() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600&auto=format&fit=crop"
-            alt="Coffee Shop Interior"
+            src={aboutImage}
+            alt="Coffee Shop"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-black/50" />
@@ -66,8 +67,8 @@ export function About() {
             >
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1600&auto=format&fit=crop"
-                  alt="Barista crafting coffee"
+                  src={aboutImage}
+                  alt="About Comma Coffee"
                   className="w-full h-full object-cover"
                 />
               </div>

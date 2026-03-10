@@ -41,7 +41,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 z-50">
-          <Logo className="h-10 w-10" fill="white" />
+          <Logo fill="white" />
         </Link>
 
         {/* Desktop Nav */}
